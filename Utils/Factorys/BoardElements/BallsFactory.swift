@@ -15,13 +15,16 @@ class BallFactory: BoardElementsFactoryProtocol {
     }
 
     func createNode() -> SKNode {
-        return SKNode()
+        let node = SKNode()
+        for _ in 0..<50 {
+            node.addChild(setupBall(locationX: 0.5))
+        }
+        return node
     }
 
-
-    private func setupBall(width: CGFloat = 0) -> SKShapeNode {
+    private func setupBall(locationX: CGFloat) -> SKShapeNode {
         let ball = SKShapeNode(circleOfRadius: 10)
-        ball.position = .init(x: frame.width * 0.2, y: frame.height)
+        ball.position = .init(x: size.width * locationX, y: size.height)
         ball.fillColor = .systemPink
         ball.physicsBody = .init(circleOfRadius: 10)
         ball.strokeColor = .clear

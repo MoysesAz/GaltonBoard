@@ -8,6 +8,8 @@
 import SpriteKit
 
 class GameBoard: SKScene {
+    lazy var  factory = GameBoardFactory(size: size)
+
     override func didMove(to view: SKView) {
         backgroundColor = .black
         setup()
@@ -23,9 +25,9 @@ class GameBoard: SKScene {
             removeAllChildren()
             setup()
         } else {
-            for _ in 0..<50 {
-                setupBall()
-            }
+            addChild(
+                factory.createFactory(factory: .ballsFactory).createNode()
+            )
         }
     }
 }
@@ -38,7 +40,6 @@ extension GameBoard {
     }
 
     private func setup() {
-        let factory = GameBoardFactory(size: size)
         addChildren([
             factory.createFactory(factory: .matrixFactory).createNode(),
             factory.createFactory(factory: .boarsFactory).createNode()

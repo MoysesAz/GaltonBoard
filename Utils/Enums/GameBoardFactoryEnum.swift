@@ -10,5 +10,5 @@ import Foundation
 enum GameBoardFactoryEnum {
     case boarsFactory
     case matrixFactory
-    case ballFactory
+    case ballsFactory
 }

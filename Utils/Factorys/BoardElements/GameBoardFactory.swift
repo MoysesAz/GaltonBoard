@@ -20,7 +20,7 @@ class GameBoardFactory {
             return BarsFactoty(size: size)
         case .matrixFactory:
             return MatrizFactory(size: size)
-        case .ballFactory:
+        case .ballsFactory:
             return BallFactory(size: size)
         }
     }
