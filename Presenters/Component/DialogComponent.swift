@@ -13,14 +13,33 @@ struct DialogComponent: View {
 
     var body: some View {
         GeometryReader { frame in
-            VStack {
-                Image(imageName.rawValue)
-                    .resizable()
-                Text(dialog.rawValue)
-                    .frame(height: frame.size.height * 0.1)
-                    .padding(10)
+            if #available(iOS 16.0, *) {
+                NavigationStack {
+                    VStack {
+                        Image(imageName.rawValue)
+                            .resizable()
+                            .frame(width: frame.size.width, height: frame.size.height * 0.9, alignment: .center)
+                        Text(dialog.rawValue)
+                            .frame(height: frame.size.height * 0.1)
+                            .padding(10)
+                    }
+                }
+            } else {
+                NavigationView {
+                    VStack {
+                        Image(imageName.rawValue)
+                            .resizable()
+                            .padding()
+                        Text(dialog.rawValue)
+                            .frame(height: frame.size.height * 0.1)
+                            .padding(10)
+                    }
+                }
+                .navigationViewStyle(.stack)
             }
         }
+        .ignoresSafeArea()
+
     }
 }
 

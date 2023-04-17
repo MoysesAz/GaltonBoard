@@ -9,4 +9,5 @@ import Foundation
 
 enum ImagesNamesEnum: String {
     case francis = "Francis"
+    case normal = "Normal"
 }

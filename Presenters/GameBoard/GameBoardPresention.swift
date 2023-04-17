@@ -9,9 +9,10 @@ struct GameBoardPresention: View {
     }
     var body: some View {
         GeometryReader { frame in
-            SpriteView(scene: scene)
-                .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
+            ZStack{
+                SpriteView(scene: scene)
+                    .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
+            }
         }
-
     }
 }
