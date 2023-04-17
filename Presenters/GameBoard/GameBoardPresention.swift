@@ -1,7 +1,7 @@
 import SwiftUI
 import SpriteKit
 
-struct ContentView: View {
+struct GameBoardPresention: View {
     var scene: SKScene {
         let scene = GameBoard()
         scene.scaleMode = .resizeFill

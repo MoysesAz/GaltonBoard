@@ -35,7 +35,7 @@ class GameBoard: SKScene {
 extension GameBoard {
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
-        let dx = CGFloat.random(in: -0.3...0.3)
+        let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
     }
 
@@ -48,16 +48,4 @@ extension GameBoard {
         self.physicsWorld.gravity = .init(dx: 0, dy: -9.8)
 
     }
-
-    private func setupBall(width: CGFloat = 0) {
-        let ball = SKShapeNode(circleOfRadius: 10)
-        ball.position = .init(x: frame.width * 0.2, y: frame.height)
-        ball.fillColor = .systemPink
-        ball.physicsBody = .init(circleOfRadius: 10)
-        ball.strokeColor = .clear
-        ball.physicsBody?.friction = 0.5
-        ball.physicsBody?.restitution = 0.2
-        addChild(ball)
-    }
-
 }
