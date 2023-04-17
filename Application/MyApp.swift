@@ -4,7 +4,7 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            GameBoardPresention()
+            DialogComponent(imageName: .francis, dialog: .galton)
         }
     }
 }
