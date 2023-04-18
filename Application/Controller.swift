@@ -11,24 +11,28 @@ import SpriteKit
 
 struct Controller: View {
     @State private var selectedIndex = 0 // Variável de estado para o índice selecionado
+    @State private var selectedIntroduction = 0 // Variável de estado para o índice selecionado
     @State private var firstGame = false
     @State private var moment = 0
 
     var body: some View {
         switch moment {
         case 0:
-            momento1
+            Game1
         default:
             QuestionsView(dialog: .destiny)
         }
     }
 
 
-    var momento1: some View {
+    var Game1: some View {
         GeometryReader { frame in
             if firstGame {
+                GameBoardPresention(scene:
+                                        GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0)
+                )
             } else {
-                TabView(selection: $selectedIndex) {
+                TabView(selection: $selectedIntroduction) {
                     QuestionsView(dialog: .destiny)
                         .tag(0)
                     FrancisView()
@@ -38,25 +42,18 @@ struct Controller: View {
                     NormalDistributionView()
                         .tag(3)
                     CallScene(key: $firstGame)
-                        .tag(4)
-                    GameBoardPresention(scene:
-                                            GameBoard(factory: GameBoardFactory(size: frame.size) )
-                    )
-                    .highPriorityGesture(DragGesture())
 
-                    .tag(5)
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(
                     .page(backgroundDisplayMode: .always)
                 )
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
             }
         }
     }
 
-    var Game1: some View {
+    var Game2: some View {
         GeometryReader { frame in
 
         }
