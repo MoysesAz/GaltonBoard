@@ -10,6 +10,7 @@ import SpriteKit
 class GameBoard: SKScene {
     lazy var factory = GameBoardFactory(size: size)
     lazy var constantPosition = 0
+    lazy var countBalls = 0
 
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -27,6 +28,7 @@ class GameBoard: SKScene {
             removeAllChildren()
             setup()
         } else {
+            countBalls += 50
             var node = factory.createFactory(factory: .ballsFactory).createNode()
             switch constantPosition {
             case -1:
@@ -41,6 +43,7 @@ class GameBoard: SKScene {
                 node = SKNode()
                 node.position.x = location.x
                 node.addChild(ball)
+                countBalls -= 49
             default:
                 print("Valor invalido")
             }
@@ -57,9 +60,14 @@ extension GameBoard {
         super.update(currentTime)
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
+        if countBalls > 1000 {
+            removeAllChildren()
+            setup()
+            countBalls = 0
+        }
     }
 
-    private func setup() {
+    func setup() {
         addChildren([
             factory.createFactory(factory: .matrixFactory).createNode(),
             factory.createFactory(factory: .boarsFactory).createNode()

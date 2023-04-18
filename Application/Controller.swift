@@ -11,6 +11,9 @@ import SpriteKit
 
 struct Controller: View {
     @State private var selectedIndex = 0 // Variável de estado para o índice selecionado
+    @State private var firstGame = false
+    @State private var moment = 0
+
     var scene1: GameBoard {
         let scene = GameBoard()
         scene.scaleMode = .resizeFill
@@ -21,50 +24,73 @@ struct Controller: View {
     var scene2: GameBoard {
         let scene = GameBoard()
         scene.scaleMode = .resizeFill
-        scene.constantPosition = -1
+        scene.constantPosition = 0
         return scene
     }
 
     var scene3: GameBoard {
         let scene = GameBoard()
         scene.scaleMode = .resizeFill
-        scene.constantPosition = 1
-        return scene
-    }
-
-    var scene4: GameBoard {
-        let scene = GameBoard()
-        scene.scaleMode = .resizeFill
-        scene.constantPosition = 4
+        scene.constantPosition = 0
         return scene
     }
 
     var body: some View {
-        GeometryReader { frame in
-            TabView(selection: $selectedIndex) {
-                FrancisView()
-                    .tag(0)
-                NormalDistributionView()
-                    .tag(1)
-                GameBoardPresention(scene: scene1)
-                    .tag(3)
-                    .ignoresSafeArea()
-                GameBoardPresention(scene: scene2)
-                    .tag(4)
-                    .ignoresSafeArea()
-                GameBoardPresention(scene: scene3)
-                    .tag(5)
-                    .ignoresSafeArea()
-                GameBoardPresention(scene: scene4)
-                    .tag(6)
-                    .ignoresSafeArea()
-            }
-            .tabViewStyle(.page)
-            .indexViewStyle(
-                .page(backgroundDisplayMode: .always)
-            )
+        switch moment {
+        case 0:
+            momento1
+        case 1:
+            momento2
+        default:
+            QuestionsView(dialog: .destiny)
         }
     }
+
+
+    var momento1: some View {
+        GeometryReader { frame in
+            if firstGame {
+                GameBoardPresention(scene: scene1)
+            } else {
+                TabView(selection: $selectedIndex) {
+                    QuestionsView(dialog: .destiny)
+                        .tag(0)
+                    FrancisView()
+                        .tag(1)
+                    ResearchView()
+                        .tag(2)
+                    NormalDistributionView()
+                        .tag(3)
+                    CallScene(key: $firstGame)
+                        .tag(4)
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(
+                    .page(backgroundDisplayMode: .always)
+                )
+            }
+        }
+    }
+
+    var momento2: some View {
+        GeometryReader { frame in
+            if firstGame {
+                GameBoardPresention(scene: scene1)
+            } else {
+                TabView(selection: $selectedIndex) {
+                    ResearchView()
+                    NormalDistributionView()
+                    CallScene(key: $firstGame)
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(
+                    .page(backgroundDisplayMode: .always)
+                )
+            }
+        }
+    }
+
+
 }
 
 

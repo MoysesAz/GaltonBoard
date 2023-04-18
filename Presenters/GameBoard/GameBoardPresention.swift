@@ -6,11 +6,17 @@ struct GameBoardPresention: View {
 
     var body: some View {
         GeometryReader { frame in
-            VStack{
-                SpriteView(scene: scene)
-                    .frame(width: frame.size.width, height: frame.size.height * 0.95, alignment: .center)
-                Spacer()
-                    .frame(width: frame.size.width, height: frame.size.height * 0.05, alignment: .center)
+            ZStack {
+                VStack{
+                    SpriteView(scene: scene)
+                        .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
+                        .onAppear(perform: {
+                            scene.setup()
+                        })
+                        .onDisappear(perform: {
+                            scene.removeAllChildren()
+                        })
+                }
             }
         }
     }

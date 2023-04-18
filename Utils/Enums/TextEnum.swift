@@ -9,9 +9,13 @@ import Foundation
 
 
 enum TextEnum: String {
+    case destiny = "Você acredita no acaso?"
     case galton =
-        "Francis Galton foi um cientista britânico do século XIX, conhecido por suas contribuições para a estatística, psicologia e genética. Ele foi primo de Charles Darwin e fez várias pesquisas pioneiras em campos como a hereditariedade e a inteligência."
+        "Esse é Francis Galton foi um cientista britânico do século XIX que não acreditava em destino como algo predeterminado na vida das pessoas. "
 
+    case research =
+        "Francis Galton usava medidas peculiares, como a rapidez na corrida, força de apertos de mão e habilidade em jogos, para estudar a hereditariedade e a natureza humana. Sua abordagem única e inovadora em suas pesquisas foi pioneira em estatística, psicologia e genética, tornando-as fascinantes e inspiradoras."
+    
     case normal =
-        "Uma função normal, também chamada de distribuição normal ou curva em forma de sino, é um conceito importante na estatística e na matemática. Ela descreve a distribuição de probabilidade de uma variável aleatória contínua que é simétrica em relação a uma média e segue um padrão específico."
+        "Francis Galton usava medidas peculiares, como a rapidez ndddd corrida, força de apertos de mão e habilidade em jogos, para estudar a hereditariedade e a natureza humana. Sua abordagem única e inovadora em suas pesquisas foi pioneira em estatística, psicologia edgenética, tornando-as fascinantes e inspiradoras."
 }
