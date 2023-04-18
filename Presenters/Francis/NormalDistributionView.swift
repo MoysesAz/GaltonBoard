@@ -51,8 +51,10 @@ struct NormalDistributionView: View {
         GeometryReader { frame in
             VStack{
                 NormalDistributionChart(dataPoints: dataPoints)
-                    .frame(height: frame.size.height * 0.9)
+                    .frame(height: frame.size.height * 0.8)
                 Text(TextEnum.normal.rawValue)
+                    .frame(height: frame.size.height * 0.1)
+                Spacer()
                     .frame(height: frame.size.height * 0.1)
             }
         }

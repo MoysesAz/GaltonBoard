@@ -8,10 +8,12 @@
 import SpriteKit
 
 class GameBoard: SKScene {
-    lazy var  factory = GameBoardFactory(size: size)
+    lazy var factory = GameBoardFactory(size: size)
+    lazy var constantPosition = 0
 
     override func didMove(to view: SKView) {
         backgroundColor = .black
+        removeAllActions()
         setup()
     }
 
@@ -25,8 +27,26 @@ class GameBoard: SKScene {
             removeAllChildren()
             setup()
         } else {
+            var node = factory.createFactory(factory: .ballsFactory).createNode()
+            switch constantPosition {
+            case -1:
+                node.position.x += frame.size.width * 0.3
+            case 0:
+                node.position.x += frame.size.width * 0.5
+            case 1:
+                node.position.x += frame.size.width * 0.7
+            case 4:
+                //Refatoracão
+                let ball = BallsFactory(size: size).setupBall(locationX: 0)
+                node = SKNode()
+                node.position.x = location.x
+                node.addChild(ball)
+            default:
+                print("Valor invalido")
+            }
+
             addChild(
-                factory.createFactory(factory: .ballsFactory).createNode()
+                node
             )
         }
     }

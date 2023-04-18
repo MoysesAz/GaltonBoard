@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct DialogComponent: View {
     let imageName: ImagesNamesEnum
     let dialog: TextEnum
@@ -18,10 +19,13 @@ struct DialogComponent: View {
                     VStack {
                         Image(imageName.rawValue)
                             .resizable()
-                            .frame(width: frame.size.width, height: frame.size.height * 0.9, alignment: .center)
+                            .frame(width: frame.size.width, height: frame.size.height * 0.8, alignment: .center)
                         Text(dialog.rawValue)
                             .frame(height: frame.size.height * 0.1)
                             .padding(10)
+                        Spacer()
+                            .frame(height: frame.size.height * 0.1)
+
                     }
                 }
             } else {
@@ -38,8 +42,6 @@ struct DialogComponent: View {
                 .navigationViewStyle(.stack)
             }
         }
-        .ignoresSafeArea()
-
     }
 }
 

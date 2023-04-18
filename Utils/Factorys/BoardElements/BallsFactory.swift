@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class BallFactory: BoardElementsFactoryProtocol {
+class BallsFactory: BoardElementsFactoryProtocol {
     var size: CGSize
 
     required init(size: CGSize) {
@@ -17,12 +17,12 @@ class BallFactory: BoardElementsFactoryProtocol {
     func createNode() -> SKNode {
         let node = SKNode()
         for _ in 0..<50 {
-            node.addChild(setupBall(locationX: 0.5))
+            node.addChild(setupBall(locationX: 0))
         }
         return node
     }
 
-    private func setupBall(locationX: CGFloat) -> SKShapeNode {
+    public func setupBall(locationX: CGFloat) -> SKShapeNode {
         let ball = SKShapeNode(circleOfRadius: 10)
         ball.position = .init(x: size.width * locationX, y: size.height)
         ball.fillColor = .systemPink
