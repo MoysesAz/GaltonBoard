@@ -8,13 +8,23 @@
 import SpriteKit
 
 class GameBoard: SKScene {
-    lazy var factory = GameBoardFactory(size: size)
-    lazy var constantPosition = 0
-    lazy var countBalls = 0
+    var factory:  GameBoardFactory
+    var constantPosition = 0
+    var countBalls = 0
+
+    init(factory: GameBoardFactory, constantPosition: Int = 0, countBalls: Int = 0) {
+        self.factory = factory
+        self.constantPosition = constantPosition
+        self.countBalls = countBalls
+        super.init(size: self.factory.size)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func didMove(to view: SKView) {
         backgroundColor = .black
-        removeAllActions()
         setup()
     }
 
@@ -68,10 +78,12 @@ extension GameBoard {
     }
 
     func setup() {
+        print(self.children)
         addChildren([
             factory.createFactory(factory: .matrixFactory).createNode(),
             factory.createFactory(factory: .boarsFactory).createNode()
         ])
+        print(self.children)
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         self.physicsWorld.gravity = .init(dx: 0, dy: -9.8)
 

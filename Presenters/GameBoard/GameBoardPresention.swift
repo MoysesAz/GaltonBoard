@@ -11,7 +11,7 @@ struct GameBoardPresention: View {
                     SpriteView(scene: scene)
                         .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
                         .onAppear(perform: {
-                            scene.setup()
+                            self.scene.setup()
                         })
                         .onDisappear(perform: {
                             scene.removeAllChildren()
