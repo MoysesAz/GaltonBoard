@@ -40,13 +40,13 @@ struct Controller: View {
                     QuestionsView(dialog: .welcome)
                         .tag(0)
                     ChanceView()
-                        .tag(8)
-                    FrancisView()
                         .tag(1)
+                    FrancisView()
+                        .tag(2)
                     NormalDistributionView(dialog: .normal)
                         .tag(3)
                     CallScene(key: $firstGame)
-
+                        .tag(4)
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(

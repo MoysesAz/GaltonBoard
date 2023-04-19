@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CallScene: View {
     @Binding var key: Bool
-    @State var opacity = 1.0
-
+    
 
     var body: some View {
         VStack{
@@ -18,26 +17,23 @@ struct CallScene: View {
                 key.toggle()
             }){
 
-                Text("Play")
+                Text("Start GaltonBoard")
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
-                    .foregroundColor(Color("Black"))
+                    .foregroundColor(Color("White"))
 
-                    .onAppear(){
-                        withAnimation(.easeIn(duration: 1.5).repeatForever()) {
-                            opacity = 0.5
-                        }
-                    }
                     .padding()
                     .background((
                         Rectangle()
-                            .fill(Color("White"))
+                            .fill(Color("BallColor"))
                             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                            .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 5, y: 10)
                             .blur(radius: 1)
                     )
                     )
+            }
+            .onTapGesture {
+
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

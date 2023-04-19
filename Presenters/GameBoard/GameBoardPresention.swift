@@ -4,6 +4,7 @@ import SpriteKit
 struct GameBoardPresention: View {
     var scene: GameBoard
     @State var isPresented: Bool = true
+    @State var isEndGame: Bool = false
 
     var body: some View {
         GeometryReader { frame in
@@ -18,14 +19,19 @@ struct GameBoardPresention: View {
                     })
 
             }
+
             .sheet(isPresented: $isPresented) {
-                Text(TextEnum.normal.rawValue)
+                IntroBoardView()
             }
+
+            .sheet(isPresented: $isEndGame) {
+                EndBoardView()
+            }
+
             .onChange(of: scene.stateGame.finishedGame) { newValue in
-                isPresented.toggle()
+                isEndGame.toggle()
             }
         }
 
     }
 }
-

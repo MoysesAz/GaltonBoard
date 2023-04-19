@@ -8,30 +8,33 @@
 import SwiftUI
 
 struct TextBox: View {
+    @State var opacity = 0.6
     var text: String
 
     var body: some View {
-        GeometryReader { frame in
-            VStack {
-                Spacer()
-                    .frame(height: frame.size.height * 0.6)
-                Rectangle()
-                    .fill(Color("White").opacity(0.60))
-                    .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
-                    .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                    .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-                    .blur(radius: 2)
-                    .overlay(
-                        Text(text)
-                            .font(.title)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .foregroundColor(Color("Black"))
-                    )
-                    .padding()
-                Spacer()
-                    .frame(height: frame.size.height * 0.1)
-            }
+        VStack {
+            Rectangle()
+                .fill(Color("White"))
+                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 5, y: 10)
+                .blur(radius: 1)
+                .overlay(
+                    Text(text)
+                        .font(.title)
+                        .padding()
+                        .foregroundColor(Color("Black"))
+                        .multilineTextAlignment(.leading)
+                        .padding(.all)
+
+                )
+                .onAppear(){
+                    withAnimation(.easeIn(duration: 1.5).repeatForever()) {
+                        opacity = 0.2
+                    }
+                }
+                .padding()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
+

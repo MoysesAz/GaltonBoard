@@ -49,7 +49,7 @@ struct NormalDistributionView: View {
     }()
 
     let dialog: TextEnum
-    @State var opacity = 1.0
+    @State var opacity = 0.5
 
     var body: some View {
         GeometryReader { frame in
@@ -77,7 +77,7 @@ struct NormalDistributionView: View {
                         .fill(Color("White"))
                         .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.25)
                         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 5, y: 10)
+                        .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 0, y: 5)
                         .blur(radius: 1)
                         .overlay(
                             Text(dialog.rawValue)
@@ -87,11 +87,6 @@ struct NormalDistributionView: View {
                                 .foregroundColor(Color("Black"))
 
                         )
-                        .onAppear(){
-                            withAnimation(.easeIn(duration: 1.5).repeatForever()) {
-                                opacity = 0.5
-                            }
-                        }
                         .padding()
                     Spacer()
                         .frame(height: frame.size.height * 0.15)
