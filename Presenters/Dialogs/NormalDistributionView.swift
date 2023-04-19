@@ -31,7 +31,8 @@ struct NormalDistributionChart: View {
                     }
                 }
             }
-            .stroke(Color("BallColor"), lineWidth: 2)
+            .stroke(Color("BallColor"), lineWidth: 5)
+
         }
         .aspectRatio(1, contentMode: .fit)
     }
@@ -48,17 +49,26 @@ struct NormalDistributionView: View {
     }()
 
     let dialog: TextEnum
+    @State var opacity = 1.0
 
     var body: some View {
         GeometryReader { frame in
             ZStack{
                 VStack{
                     Spacer()
-                        .frame(width: frame.size.width, height: frame.size.height * 0.1, alignment: .center)
+                        .frame(height: frame.size.height * 0.05)
 
                     NormalDistributionChart(dataPoints: dataPoints)
+                        .opacity(opacity)
+                        .onAppear(){
+                            withAnimation(.easeIn(duration: 1.5).repeatForever()) {
+                                opacity = 0.2
+                            }
+                        }
+                        .frame(width: frame.size.width, height: frame.size.height * 0.5, alignment: .center)
                     Spacer()
-                        .frame(height: frame.size.height * 0.45, alignment: .center)
+                        .frame(height: frame.size.height * 0.45)
+
                 }
                 VStack {
                     Spacer()
@@ -67,7 +77,7 @@ struct NormalDistributionView: View {
                         .fill(Color("White"))
                         .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
                         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color("BallColor").opacity(0.8), radius: 1, x: 5, y: 10)
+                        .shadow(color: Color("BallColor").opacity(0.4), radius: 1, x: 0, y: 10)
                         .blur(radius: 1)
                         .overlay(
                             Text(dialog.rawValue)

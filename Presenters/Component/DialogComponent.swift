@@ -11,6 +11,7 @@ import SwiftUI
 struct DialogComponent: View {
     let imageName: ImagesNamesEnum
     let dialog: TextEnum
+    @State var opacity = 1.0
 
     var body: some View {
         GeometryReader { frame in
@@ -24,7 +25,7 @@ struct DialogComponent: View {
                         .fill(Color("White"))
                         .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
                         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color("BallColor").opacity(0.8), radius: 1, x: 5, y: 10)
+                        .shadow(color: Color("BallColor").opacity(opacity), radius: 1, x: 5, y: 10)
                         .blur(radius: 1)
                         .overlay(
                             Text(dialog.rawValue)
@@ -33,6 +34,11 @@ struct DialogComponent: View {
                                 .padding()
                                 .foregroundColor(Color("Black"))
                         )
+                        .onAppear(){
+                            withAnimation(.easeIn(duration: 1.5).repeatForever()) {
+                                opacity = 0.2
+                            }
+                        }
                         .padding()
                     Spacer()
                         .frame(height: frame.size.height * 0.1)
