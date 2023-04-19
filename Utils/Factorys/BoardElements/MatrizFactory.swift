@@ -34,7 +34,7 @@ class MatrizFactory: BoardElementsFactoryProtocol {
             let newNails = SKShapeNode(circleOfRadius: circleOfRadius)
             let ballPositionX = margin + (spaceBetweenBalls * CGFloat(i))
             newNails.position = CGPoint(x: ballPositionX, y: height)
-            newNails.fillColor = .white
+            newNails.fillColor = UIColor(named: "Black")!
             newNails.physicsBody = .init(circleOfRadius: circleOfRadius)
             newNails.physicsBody?.affectedByGravity = false
             newNails.physicsBody?.isDynamic = false

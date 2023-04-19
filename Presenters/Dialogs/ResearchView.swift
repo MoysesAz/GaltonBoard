@@ -12,4 +12,3 @@ struct ResearchView: View {
         DialogComponent(imageName: .galton, dialog: .research)
     }
 }
-

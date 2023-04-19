@@ -14,10 +14,10 @@ struct Controller: View {
     @State private var selectedIntroduction = 0 // Variável de estado para o índice selecionado
     @State private var firstGame = false
     @State private var moment = 0
-    @ObservedObject private var stateGame1 = FinishedGame()
-    @ObservedObject private var stateGame2 = FinishedGame()
-    @ObservedObject private var stateGame3 = FinishedGame()
-    @ObservedObject private var stateGame4 = FinishedGame()
+    @ObservedObject private var stateGame1 = StateGame()
+    @ObservedObject private var stateGame2 = StateGame()
+    @ObservedObject private var stateGame3 = StateGame()
+    @ObservedObject private var stateGame4 = StateGame()
 
 
     var body: some View {
@@ -43,7 +43,7 @@ struct Controller: View {
                         .tag(1)
                     ResearchView()
                         .tag(2)
-                    NormalDistributionView()
+                    NormalDistributionView(dialog: .normal)
                         .tag(3)
                     CallScene(key: $firstGame)
                 }

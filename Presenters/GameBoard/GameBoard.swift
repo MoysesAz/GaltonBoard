@@ -8,7 +8,7 @@
 import SpriteKit
 import SwiftUI
 
-class FinishedGame: ObservableObject {
+class StateGame: ObservableObject {
     @Published var finishedGame = false
 }
 
@@ -16,11 +16,11 @@ class GameBoard: SKScene {
     var factory:  GameBoardFactory
     var constantPosition = 0
     var countBalls = 0
-    var stateGame: FinishedGame
+    var stateGame: StateGame
     
 
 
-    init(factory: GameBoardFactory, constantPosition: Int = 0, countBalls: Int = 0, stateGame: FinishedGame = FinishedGame()) {
+    init(factory: GameBoardFactory, constantPosition: Int = 0, countBalls: Int = 0, stateGame: StateGame = StateGame()) {
         self.factory = factory
         self.constantPosition = constantPosition
         self.countBalls = countBalls
@@ -33,7 +33,7 @@ class GameBoard: SKScene {
     }
 
     override func didMove(to view: SKView) {
-        backgroundColor = .black
+        backgroundColor = UIColor(named: "White")!
         setup()
     }
 

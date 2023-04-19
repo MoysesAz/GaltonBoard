@@ -31,7 +31,7 @@ struct NormalDistributionChart: View {
                     }
                 }
             }
-            .stroke(Color.blue, lineWidth: 2)
+            .stroke(Color("BallColor"), lineWidth: 2)
         }
         .aspectRatio(1, contentMode: .fit)
     }
@@ -47,22 +47,30 @@ struct NormalDistributionView: View {
         return points
     }()
 
+    let dialog: TextEnum
+
     var body: some View {
         GeometryReader { frame in
             ZStack{
-                NormalDistributionChart(dataPoints: dataPoints)
-                    .frame(height: frame.size.height)
+                VStack{
+                    Spacer()
+                        .frame(width: frame.size.width, height: frame.size.height * 0.1, alignment: .center)
+
+                    NormalDistributionChart(dataPoints: dataPoints)
+                    Spacer()
+                        .frame(height: frame.size.height * 0.45, alignment: .center)
+                }
                 VStack {
                     Spacer()
                         .frame(height: frame.size.height * 0.6)
                     Rectangle()
-                        .fill(Color("White").opacity(0.60))
+                        .fill(Color("White"))
                         .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
                         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
-                        .blur(radius: 2)
+                        .shadow(color: Color("BallColor").opacity(0.8), radius: 1, x: 5, y: 10)
+                        .blur(radius: 1)
                         .overlay(
-                            Text(TextEnum.normal.rawValue)
+                            Text(dialog.rawValue)
                                 .font(.title)
                                 .multilineTextAlignment(.center)
                                 .padding()
@@ -71,6 +79,7 @@ struct NormalDistributionView: View {
                         .padding()
                     Spacer()
                         .frame(height: frame.size.height * 0.1)
+
                 }
             }
         }

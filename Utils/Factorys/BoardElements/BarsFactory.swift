@@ -19,7 +19,7 @@ class BarsFactoty: BoardElementsFactoryProtocol {
         let spacing = size.width / CGFloat(10)
         for i in 0..<11 {
             node.addChild(
-                setupBar(positionX: spacing * CGFloat(i), width: size.width * 0.001, height: size.height)
+                setupBar(positionX: spacing * CGFloat(i), width: size.width * 0.002, height: size.height)
             )
         }
         return node
@@ -29,7 +29,7 @@ class BarsFactoty: BoardElementsFactoryProtocol {
         let bar = SKShapeNode(rectOf: .init(width: width, height: height))
         bar.physicsBody = .init(rectangleOf: .init(width: width, height: height))
         bar.position = CGPoint(x: positionX, y: 0)
-        bar.fillColor = .white
+        bar.fillColor = UIColor(named: "Black")!
         bar.physicsBody?.affectedByGravity = false
         bar.physicsBody?.isDynamic = false
         bar.physicsBody?.allowsRotation = false
