@@ -9,13 +9,13 @@ import Foundation
 
 
 enum TextEnum: String {
-    case destiny = "Você acredita no acaso?"
+    case destiny = "Social Randomic"
     case galton =
-        "Esse era Francis Galton. Ele foi um cientista britânico que não acreditava em destino"
+        "Esse e Francis Galton, ele acreditava que a natureza humana era determinada por fatores genéticos e que nossas características físicas e mentais eram herdadas de nossos pais"
 
     case research =
-        "Francis Galton usava medidas peculiares, como a rapidez na corrida, força de apertos de mão e habilidade em jogos, para estudar a hereditariedade e a natureza humana. Sua abordagem única e inovadora em suas pesquisas foi pioneira em estatística, psicologia e genética, tornando-as fascinantes e inspiradoras."
+        "Ele tentou quantificar as caracteristicas atraves de pesquisas. Como medir o tamanho das pessoas"
     
     case normal =
-        "Francis Galton usava medidas peculiares, como a rapidez ndddd corrida, força de apertos de mão e habilidade em jogos, para estudar a hereditariedade e a natureza humana. Sua abordagem única e inovadora em suas pesquisas foi pioneira em estatística, psicologia edgenética, tornando-as fascinantes e inspiradoras."
+        "Existia uma igualdade"
 }

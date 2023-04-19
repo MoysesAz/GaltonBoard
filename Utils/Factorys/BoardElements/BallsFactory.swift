@@ -7,6 +7,7 @@
 
 import SpriteKit
 
+
 class BallsFactory: BoardElementsFactoryProtocol {
     var size: CGSize
 
@@ -24,10 +25,9 @@ class BallsFactory: BoardElementsFactoryProtocol {
 
     public func setupBall(locationX: CGFloat) -> SKShapeNode {
         //PROBLEMA
-        let ballColor = UIColor(named: "BallColor")
         let ball = SKShapeNode(circleOfRadius: 10)
         ball.position = .init(x: size.width * locationX, y: size.height)
-        ball.fillColor = ballColor!
+        ball.fillColor = UIColor.red
         ball.physicsBody = .init(circleOfRadius: 10)
         ball.strokeColor = .clear
         ball.physicsBody?.friction = 0.5

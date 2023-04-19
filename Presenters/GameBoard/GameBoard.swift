@@ -6,16 +6,25 @@
 //
 
 import SpriteKit
+import SwiftUI
+
+class FinishedGame: ObservableObject {
+    @Published var finishedGame = false
+}
 
 class GameBoard: SKScene {
     var factory:  GameBoardFactory
     var constantPosition = 0
     var countBalls = 0
+    var stateGame: FinishedGame
+    
 
-    init(factory: GameBoardFactory, constantPosition: Int = 0, countBalls: Int = 0) {
+
+    init(factory: GameBoardFactory, constantPosition: Int = 0, countBalls: Int = 0, stateGame: FinishedGame = FinishedGame()) {
         self.factory = factory
         self.constantPosition = constantPosition
         self.countBalls = countBalls
+        self.stateGame = stateGame
         super.init(size: self.factory.size)
     }
 
@@ -71,6 +80,7 @@ extension GameBoard {
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
         if countBalls > 1000 {
+            stateGame.finishedGame.toggle()
             removeAllChildren()
             setup()
             countBalls = 0

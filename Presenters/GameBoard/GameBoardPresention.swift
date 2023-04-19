@@ -8,17 +8,24 @@ struct GameBoardPresention: View {
     var body: some View {
         GeometryReader { frame in
             ZStack {
-                VStack{
-                    SpriteView(scene: scene)
-                        .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
-                        .onAppear(perform: {
-                            self.scene.setup()
-                        })
-                        .onDisappear(perform: {
-                            scene.removeAllChildren()
+                SpriteView(scene: scene)
+                    .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
+                    .onAppear(perform: {
+                        self.scene.setup()
+                    })
+                    .onDisappear(perform: {
+                        scene.removeAllChildren()
+                    })
+                if scene.stateGame.finishedGame {
+                    Text("")
+                        .task({
+                            isPresented.toggle()
                         })
                 }
+
             }
+
+
             .sheet(isPresented: $isPresented) {
                 Text(TextEnum.normal.rawValue)
             }

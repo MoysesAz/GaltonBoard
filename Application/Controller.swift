@@ -14,6 +14,11 @@ struct Controller: View {
     @State private var selectedIntroduction = 0 // Variável de estado para o índice selecionado
     @State private var firstGame = false
     @State private var moment = 0
+    @ObservedObject private var stateGame1 = FinishedGame()
+    @ObservedObject private var stateGame2 = FinishedGame()
+    @ObservedObject private var stateGame3 = FinishedGame()
+    @ObservedObject private var stateGame4 = FinishedGame()
+
 
     var body: some View {
         switch moment {
@@ -28,7 +33,7 @@ struct Controller: View {
         GeometryReader { frame in
             if firstGame {
                 GameBoardPresention(scene:
-                                        GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0)
+                                        GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0, stateGame: stateGame1)
                 )
             } else {
                 TabView(selection: $selectedIntroduction) {
