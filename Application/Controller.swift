@@ -24,7 +24,6 @@ struct Controller: View {
         }
     }
 
-
     var Game1: some View {
         GeometryReader { frame in
             if firstGame {
@@ -42,7 +41,6 @@ struct Controller: View {
                     NormalDistributionView()
                         .tag(3)
                     CallScene(key: $firstGame)
-
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(

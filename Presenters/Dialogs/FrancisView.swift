@@ -9,6 +9,6 @@ import SwiftUI
 
 struct FrancisView: View {
     var body: some View {
-        DialogComponent(imageName: .francis, dialog: .galton)
+        DialogComponent(imageName: .galton, dialog: .galton)
     }
 }

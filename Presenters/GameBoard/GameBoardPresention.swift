@@ -3,6 +3,7 @@ import SpriteKit
 
 struct GameBoardPresention: View {
     var scene: GameBoard
+    @State var isPresented: Bool = true
 
     var body: some View {
         GeometryReader { frame in
@@ -18,7 +19,11 @@ struct GameBoardPresention: View {
                         })
                 }
             }
+            .sheet(isPresented: $isPresented) {
+                Text(TextEnum.normal.rawValue)
+            }
         }
+
     }
 }
 

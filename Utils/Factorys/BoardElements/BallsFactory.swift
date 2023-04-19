@@ -23,16 +23,15 @@ class BallsFactory: BoardElementsFactoryProtocol {
     }
 
     public func setupBall(locationX: CGFloat) -> SKShapeNode {
+        //PROBLEMA
+        let ballColor = UIColor(named: "BallColor")
         let ball = SKShapeNode(circleOfRadius: 10)
         ball.position = .init(x: size.width * locationX, y: size.height)
-        ball.fillColor = .systemPink
+        ball.fillColor = ballColor!
         ball.physicsBody = .init(circleOfRadius: 10)
         ball.strokeColor = .clear
         ball.physicsBody?.friction = 0.5
         ball.physicsBody?.restitution = 0.2
         return ball
     }
-
-
-
 }

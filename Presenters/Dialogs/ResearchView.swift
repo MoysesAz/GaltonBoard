@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResearchView: View {
     var body: some View {
-        DialogComponent(imageName: .francis, dialog: .research)
+        DialogComponent(imageName: .galton, dialog: .research)
     }
 }
 

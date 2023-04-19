@@ -49,13 +49,29 @@ struct NormalDistributionView: View {
 
     var body: some View {
         GeometryReader { frame in
-            VStack{
+            ZStack{
                 NormalDistributionChart(dataPoints: dataPoints)
-                    .frame(height: frame.size.height * 0.8)
-                Text(TextEnum.normal.rawValue)
-                    .frame(height: frame.size.height * 0.1)
-                Spacer()
-                    .frame(height: frame.size.height * 0.1)
+                    .frame(height: frame.size.height)
+                VStack {
+                    Spacer()
+                        .frame(height: frame.size.height * 0.6)
+                    Rectangle()
+                        .fill(Color("White").opacity(0.60))
+                        .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
+                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                        .shadow(color: Color.black.opacity(0.6), radius: 10, x: 0, y: 10)
+                        .blur(radius: 2)
+                        .overlay(
+                            Text(TextEnum.normal.rawValue)
+                                .font(.title)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                                .foregroundColor(Color("Black"))
+                        )
+                        .padding()
+                    Spacer()
+                        .frame(height: frame.size.height * 0.1)
+                }
             }
         }
     }

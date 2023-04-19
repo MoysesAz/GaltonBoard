@@ -14,55 +14,31 @@ struct DialogComponent: View {
 
     var body: some View {
         GeometryReader { frame in
-            if #available(iOS 16.0, *) {
-                NavigationStack {
-                    ZStack {
-                        Image(imageName.rawValue)
-                            .resizable()
-                            .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
-                        VStack {
-                            Spacer()
-                                .frame(height: frame.size.height * 0.7)
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.2, alignment: .center)
-                                    .cornerRadius(frame.size.width * 0.5)
-                                Text(dialog.rawValue)
-                                    .frame(height: frame.size.height * 0.1)
-                                    .padding(10)
-                                    .foregroundColor(.white)
-                            }
-                            Spacer()
-                                .frame(height: frame.size.height * 0.1)
-                        }
-                    }
+            ZStack{
+                Image(imageName.rawValue)
+                    .resizable()
+                VStack {
+                    Spacer()
+                        .frame(height: frame.size.height * 0.6)
+                    Rectangle()
+                        .fill(Color("White").opacity(0.60))
+                        .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
+                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                        .shadow(color: Color("Black").opacity(0.6), radius: 10, x: 0, y: 10)
+                        .blur(radius: 2)
+                        .overlay(
+                            Text(dialog.rawValue)
+                                .font(.title)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                                .foregroundColor(Color("Black"))
+                        )
+                        .padding()
+                    Spacer()
+                        .frame(height: frame.size.height * 0.1)
                 }
-
-
-
-
-
-
-
-            } else {
-                NavigationView {
-                    VStack {
-                        Image(imageName.rawValue)
-                            .resizable()
-                            .padding()
-                        Text(dialog.rawValue)
-                            .frame(height: frame.size.height * 0.1)
-                            .padding(10)
-                    }
-                }
-                .navigationViewStyle(.stack)
             }
         }
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        DialogComponent(imageName: .francis, dialog: .galton)
-    }
-}
