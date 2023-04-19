@@ -32,8 +32,8 @@ struct Controller: View {
     var Game1: some View {
         GeometryReader { frame in
             if firstGame {
-                GameBoardPresention(scene:
-                                        GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0, stateGame: stateGame1)
+                GameBoardPresention(
+                    scene: GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0, stateGame: stateGame1)
                 )
             } else {
                 TabView(selection: $selectedIntroduction) {

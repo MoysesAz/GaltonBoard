@@ -27,7 +27,8 @@ class BallsFactory: BoardElementsFactoryProtocol {
         //PROBLEMA
         let ball = SKShapeNode(circleOfRadius: 10)
         ball.position = .init(x: size.width * locationX, y: size.height)
-        ball.fillColor = UIColor.red
+        //ball.fillColor = #colorLiteral(red: 1, green: 0.0636144653, blue: 0.4352299571, alpha: 1)
+        ball.fillColor = UIColor(named: "BallColor")!
         ball.physicsBody = .init(circleOfRadius: 10)
         ball.strokeColor = .clear
         ball.physicsBody?.friction = 0.5

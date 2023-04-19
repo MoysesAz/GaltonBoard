@@ -16,18 +16,13 @@ struct GameBoardPresention: View {
                     .onDisappear(perform: {
                         scene.removeAllChildren()
                     })
-                if scene.stateGame.finishedGame {
-                    Text("")
-                        .task({
-                            isPresented.toggle()
-                        })
-                }
 
             }
-
-
             .sheet(isPresented: $isPresented) {
                 Text(TextEnum.normal.rawValue)
+            }
+            .onChange(of: scene.stateGame.finishedGame) { newValue in
+                isPresented.toggle()
             }
         }
 
