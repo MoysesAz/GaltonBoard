@@ -25,7 +25,7 @@ struct Controller: View {
         case 0:
             Game1
         default:
-            QuestionsView(dialog: .destiny)
+            QuestionsView(dialog: .welcome)
         }
     }
 
@@ -37,12 +37,12 @@ struct Controller: View {
                 )
             } else {
                 TabView(selection: $selectedIntroduction) {
-                    QuestionsView(dialog: .destiny)
+                    QuestionsView(dialog: .welcome)
                         .tag(0)
+                    ChanceView()
+                        .tag(8)
                     FrancisView()
                         .tag(1)
-                    ResearchView()
-                        .tag(2)
                     NormalDistributionView(dialog: .normal)
                         .tag(3)
                     CallScene(key: $firstGame)

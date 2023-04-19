@@ -31,7 +31,7 @@ struct NormalDistributionChart: View {
                     }
                 }
             }
-            .stroke(Color("BallColor"), lineWidth: 5)
+            .stroke(Color("BallColor"), lineWidth: 10)
 
         }
         .aspectRatio(1, contentMode: .fit)
@@ -75,9 +75,9 @@ struct NormalDistributionView: View {
                         .frame(height: frame.size.height * 0.6)
                     Rectangle()
                         .fill(Color("White"))
-                        .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.3)
+                        .frame(width: frame.size.width * 0.8, height: frame.size.height * 0.25)
                         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .shadow(color: Color("BallColor").opacity(0.4), radius: 1, x: 0, y: 10)
+                        .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 5, y: 10)
                         .blur(radius: 1)
                         .overlay(
                             Text(dialog.rawValue)
@@ -85,13 +85,20 @@ struct NormalDistributionView: View {
                                 .multilineTextAlignment(.center)
                                 .padding()
                                 .foregroundColor(Color("Black"))
+
                         )
+                        .onAppear(){
+                            withAnimation(.easeIn(duration: 1.5).repeatForever()) {
+                                opacity = 0.5
+                            }
+                        }
                         .padding()
                     Spacer()
-                        .frame(height: frame.size.height * 0.1)
-
+                        .frame(height: frame.size.height * 0.15)
                 }
             }
         }
+        .background(Color("Background"))
+
     }
 }

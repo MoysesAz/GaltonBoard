@@ -10,4 +10,6 @@ import Foundation
 enum ImagesNamesEnum: String {
     case galton = "Francis"
     case normal = "Normal"
+    case lightDice = "Dice"
+    case darkDice = "Dice.fill"
 }

@@ -9,13 +9,16 @@ import Foundation
 
 
 enum TextEnum: String {
-    case destiny = "Social Randomic"
+    case welcome =  "Do you believe in chance?"
+    case chance =
+            "Chance, from a scientific standpoint, can be understood as the occurrence of events or situations that cannot be completely predicted or controlled."
+
     case galton =
-        "Esse e Francis Galton, ele acreditava que a natureza humana era determinada por fatores genéticos e que nossas características físicas e mentais eram herdadas de nossos pais"
+            "Francis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean value."
 
     case research =
-        "Ele tentou quantificar as caracteristicas atraves de pesquisas. Como medir o tamanho das pessoas"
+            "He attempted to quantify characteristics through research. Like measuring the size of people."
     
     case normal =
-        "Existia uma igualdade"
+            "The Gaussian curve, or normal distribution, is one of the most important statistical distributions used in various fields of knowledge"
 }

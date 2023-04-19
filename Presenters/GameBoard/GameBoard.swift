@@ -79,7 +79,7 @@ extension GameBoard {
         super.update(currentTime)
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
-        if countBalls > 1000 {
+        if countBalls > 1500 {
             stateGame.finishedGame.toggle()
             removeAllChildren()
             setup()
@@ -88,12 +88,10 @@ extension GameBoard {
     }
 
     func setup() {
-        print(self.children)
         addChildren([
             factory.createFactory(factory: .matrixFactory).createNode(),
             factory.createFactory(factory: .boarsFactory).createNode()
         ])
-        print(self.children)
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         self.physicsWorld.gravity = .init(dx: 0, dy: -9.8)
 

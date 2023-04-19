@@ -2,22 +2,28 @@
 //  SwiftUIView.swift
 //  
 //
-//  Created by Moyses Miranda do Vale Azevedo on 17/04/23.
+//  Created by Moyses Miranda do Vale Azevedo on 19/04/23.
 //
 
 import SwiftUI
 
-
-struct DialogComponent: View {
-    let imageName: ImagesNamesEnum
-    let dialog: TextEnum
+struct ChanceView: View {
     @State var opacity = 1.0
-
     var body: some View {
         GeometryReader { frame in
             ZStack{
-                Image(imageName.rawValue)
-                    .resizable()
+                VStack{
+                    Spacer()
+                        .frame(height: frame.size.height * 0.2)
+
+                    Image(
+                        ImagesNamesEnum.darkDice.rawValue
+                    )
+                        .frame(width: frame.size.width, height: frame.size.height * 0.2, alignment: .center)
+                    Spacer()
+                        .frame(height: frame.size.height * 0.6)
+
+                }
                 VStack {
                     Spacer()
                         .frame(height: frame.size.height * 0.6)
@@ -28,7 +34,7 @@ struct DialogComponent: View {
                         .shadow(color: Color("BallColor").opacity(opacity), radius: 3, x: 5, y: 10)
                         .blur(radius: 1)
                         .overlay(
-                            Text(dialog.rawValue)
+                            Text(TextEnum.chance.rawValue)
                                 .font(.title)
                                 .multilineTextAlignment(.center)
                                 .padding()
@@ -46,6 +52,8 @@ struct DialogComponent: View {
                 }
             }
         }
+        .background(Color("Background"))
+
     }
 }
 
