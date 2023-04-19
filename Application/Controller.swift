@@ -46,6 +46,7 @@ struct Controller: View {
                     NormalDistributionView(dialog: .normal)
                         .tag(3)
                     CallScene(key: $firstGame)
+
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(
