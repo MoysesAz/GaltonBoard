@@ -81,7 +81,7 @@ extension GameBoard {
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
         
-        if countBalls > 1500 {
+        if countBalls > 100 {
             stateGame.finishedGame.toggle()
             removeAllChildren()
             setup()

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EndBoardView: View {
     @Binding var key: Bool
+    var observations: String
+
     var body: some View {
         GeometryReader{ frame in
             VStack{
@@ -16,7 +18,7 @@ struct EndBoardView: View {
                     .font(.largeTitle)
                     .bold()
                     .padding(.all)
-                Text(TextEnum.introScene1.rawValue)
+                Text(observations)
                     .font(.title)
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, frame.size.width * 0.1)

@@ -36,6 +36,15 @@ struct Controller: View {
         else if (isSceneEnd1 && !isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4) {
             Game2
         }
+
+        else if (isSceneEnd1 && isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4) {
+            Game3
+        }
+
+        else if (isSceneEnd1 && isSceneEnd2 && isSceneEnd3 && !isSceneEnd4) {
+            Game4
+        }
+
     }
 
     var Game1: some View {
@@ -44,6 +53,8 @@ struct Controller: View {
                 GameBoardPresention1(
                     scene: GameBoard(factory: .init(size: frame.size), constantPosition: 0, stateGame: stateGame1), isSceneEnd: $isSceneEnd1
                 )
+
+
             } else {
                 TabView(selection: $selectedIntroduction) {
                     QuestionsView(dialog: .welcome)
@@ -67,9 +78,25 @@ struct Controller: View {
 
     var Game2: some View {
         GeometryReader { frame in
-
+            GameBoardPresention1(
+                scene: GameBoard(factory: .init(size: frame.size), constantPosition: -1, stateGame: stateGame2), isSceneEnd: $isSceneEnd2)
         }
     }
+
+    var Game3: some View {
+        GeometryReader { frame in
+            GameBoardPresention1(
+                scene: GameBoard(factory: .init(size: frame.size), constantPosition: 1, stateGame: stateGame3), isSceneEnd: $isSceneEnd3)
+        }
+    }
+
+    var Game4: some View {
+        GeometryReader { frame in
+            GameBoardPresention1(
+                scene: GameBoard(factory: .init(size: frame.size), constantPosition: 4, stateGame: stateGame4), isSceneEnd: $isSceneEnd4)
+        }
+    }
+
 }
 
 

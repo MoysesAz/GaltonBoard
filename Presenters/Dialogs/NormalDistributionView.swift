@@ -49,7 +49,7 @@ struct NormalDistributionView: View {
     }()
 
     let dialog: TextEnum
-    @State var opacity = 0.5
+    @State var opacity = 1.0
 
     var body: some View {
         GeometryReader { frame in
@@ -61,7 +61,7 @@ struct NormalDistributionView: View {
                     NormalDistributionChart(dataPoints: dataPoints)
                         .opacity(opacity)
                         .onAppear(){
-                            withAnimation(.easeIn(duration: 1.5).repeatForever()) {
+                            withAnimation(.easeInOut(duration: 1.5).repeatForever()) {
                                 opacity = 0.2
                             }
                         }
