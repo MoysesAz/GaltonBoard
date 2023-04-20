@@ -9,10 +9,24 @@ import SwiftUI
 
 struct EndBoardView: View {
     var body: some View {
-        Text(TextEnum.end.rawValue)
-            .font(.title)
-            .multilineTextAlignment(.center)
-            .padding()
-            .foregroundColor(Color("Black"))
+        GeometryReader{ frame in
+            VStack{
+                Text("Galton Board")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.all)
+                Text(TextEnum.introScene1.rawValue)
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal, frame.size.width * 0.1)
+                    .foregroundColor(Color("Black"))
+                Spacer()
+                HStack {
+                    
+                }
+
+            }
+            .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
+        }
     }
 }

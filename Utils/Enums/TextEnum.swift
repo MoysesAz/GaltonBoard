@@ -20,12 +20,13 @@ enum TextEnum: String {
             "He attempted to quantify characteristics through research. Like measuring the size of people."
     
     case normal =
-            "The Gaussian curve, or normal distribution, is one of the most important statistical distributions used in various fields of knowledge"
-
-    case intro =
+            "A curva gaussiana, ou distribuição normal, é uma das mais importantes distribuições estatísticas utilizadas em diversas áreas do conhecimento ela representa a função das variaveis aleatórias"
+    case introScene1 =
         "Uma aplicação interessante da distribuição normal é na construção do tabuleiro de Galton. Essa máquina consiste em uma série de pinos que formam uma grade vertical, no topo é adicionada uma esfera que é liberada e cai pelos pinos, sendo desviada a cada nível. As esferas que caem em cada nível representam as observações de um experimento e sua distribuição no tabuleiro reflete a distribuição normal."
 
+    case instructionScene1 =
+        "Click na parte superior aos pregos para fazer as bolas cairem e na parte de baixo resetar o jogo. Apos 20 clicks o mapa é encerrado"
 
-    case end =
-            "FimFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean valueFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean valueFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean valueFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean valueFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean valueFrancis Galton was a British scientist who contributed to statistics and measurement, and identified a pattern that repeated in many natural phenomena: the normal distribution, a bell-shaped curve symmetrical around a mean value"
+    case endScene1 =
+            "Observe que as bolinhas geraram uma forma galsiana. Repesentando por exemplo a altura de pessoas na sociedade. Existem poucas pessoas baixinha e poucas pessoas altas"
 }

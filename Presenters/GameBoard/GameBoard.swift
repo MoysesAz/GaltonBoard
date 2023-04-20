@@ -46,6 +46,7 @@ class GameBoard: SKScene {
         if location.y < frame.height * 0.5 {
             removeAllChildren()
             setup()
+            countBalls = 0
         } else {
             countBalls += 50
             var node = factory.createFactory(factory: .ballsFactory).createNode()
@@ -79,6 +80,7 @@ extension GameBoard {
         super.update(currentTime)
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
+        
         if countBalls > 1500 {
             stateGame.finishedGame.toggle()
             removeAllChildren()

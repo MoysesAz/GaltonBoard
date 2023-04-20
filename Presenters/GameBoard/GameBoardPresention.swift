@@ -19,15 +19,12 @@ struct GameBoardPresention: View {
                     })
 
             }
-
             .sheet(isPresented: $isPresented) {
-                IntroBoardView()
+                IntroBoardView(intro: TextEnum.introScene1.rawValue, instructions: TextEnum.instructionScene1.rawValue)
             }
-
             .sheet(isPresented: $isEndGame) {
                 EndBoardView()
             }
-
             .onChange(of: scene.stateGame.finishedGame) { newValue in
                 isEndGame.toggle()
             }
