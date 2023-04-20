@@ -47,8 +47,6 @@ struct Controller: View {
                 GameBoardPresention1(
                     scene: GameBoard(factory: .init(size: frame.size), constantPosition: 0, stateGame: stateGame1), isSceneEnd: $isSceneEnd1
                 )
-
-
             } else {
                 TabView(selection: $selectedIntroduction) {
                     QuestionsView(dialog: .welcome)

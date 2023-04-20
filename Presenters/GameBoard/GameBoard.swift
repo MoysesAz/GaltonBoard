@@ -86,6 +86,7 @@ extension GameBoard {
             removeAllChildren()
             setup()
             countBalls = 0
+
         } else if countBalls > 2 && constantPosition == 4{
             stateGame.finishedGame.toggle()
             removeAllChildren()

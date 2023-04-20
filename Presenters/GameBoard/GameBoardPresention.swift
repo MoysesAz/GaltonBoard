@@ -90,7 +90,7 @@ struct GameBoardPresention4: View {
 
             }
             .sheet(isPresented: $isPresented) {
-                IntroBoardView(intro: TextEnum.introScene3.rawValue, instructions: TextEnum.instructionScene1.rawValue)
+                IntroBoardView(intro: TextEnum.introScene3.rawValue, instructions: TextEnum.instructionScene4.rawValue)
             }
             .sheet(isPresented: $isEndGame) {
                 EndBoardView(key: $isSceneEnd, observations: TextEnum.endScene4.rawValue)
