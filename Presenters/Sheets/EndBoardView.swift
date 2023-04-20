@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EndBoardView: View {
+    @Binding var key: Bool
     var body: some View {
         GeometryReader{ frame in
             VStack{
@@ -22,7 +23,25 @@ struct EndBoardView: View {
                     .foregroundColor(Color("Black"))
                 Spacer()
                 HStack {
-                    
+                    Button(action: {
+                        key.toggle()
+                    }){
+
+                        Text("Next Level")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .foregroundColor(Color("White"))
+
+                            .padding()
+                            .background((
+                                Rectangle()
+                                    .fill(Color("BallColor"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                    .blur(radius: 1)
+                            )
+                            )
+                    }
                 }
 
             }

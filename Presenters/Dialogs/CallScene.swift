@@ -32,9 +32,6 @@ struct CallScene: View {
                     )
                     )
             }
-            .onTapGesture {
-
-            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("Background"))

@@ -28,5 +28,6 @@ enum TextEnum: String {
         "Click na parte superior aos pregos para fazer as bolas cairem e na parte de baixo resetar o jogo. Apos 20 clicks o mapa é encerrado"
 
     case endScene1 =
-            "Observe que as bolinhas geraram uma forma galsiana. Repesentando por exemplo a altura de pessoas na sociedade. Existem poucas pessoas baixinha e poucas pessoas altas"
+            "Observe que as bolinhas geraram uma forma galsiana. Representando por exemplo a altura de pessoas na sociedade. Existem poucas pessoas baixinha e poucas pessoas altas. E uma quantidade enorme de pessoas com estatura media. Esse padrão se repente em milhares de assuntos."
+
 }

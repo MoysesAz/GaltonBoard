@@ -13,6 +13,15 @@ struct Controller: View {
     @State private var selectedIndex = 0 // Variável de estado para o índice selecionado
     @State private var selectedIntroduction = 0 // Variável de estado para o índice selecionado
     @State private var firstGame = false
+
+
+    @State private var isSceneEnd1 = false
+    @State private var isSceneEnd2 = false
+    @State private var isSceneEnd3 = false
+    @State private var isSceneEnd4 = false
+
+
+
     @State private var moment = 0
     @ObservedObject private var stateGame1 = StateGame()
     @ObservedObject private var stateGame2 = StateGame()
@@ -21,19 +30,19 @@ struct Controller: View {
 
 
     var body: some View {
-        switch moment {
-        case 0:
+        if !isSceneEnd1 && !isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4 {
             Game1
-        default:
-            QuestionsView(dialog: .welcome)
+        }
+        else if (isSceneEnd1 && !isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4) {
+            Game2
         }
     }
 
     var Game1: some View {
         GeometryReader { frame in
             if firstGame {
-                GameBoardPresention(
-                    scene: GameBoard(factory: GameBoardFactory(size: frame.size), constantPosition: 0, stateGame: stateGame1)
+                GameBoardPresention1(
+                    scene: GameBoard(factory: .init(size: frame.size), constantPosition: 0, stateGame: stateGame1), isSceneEnd: $isSceneEnd1
                 )
             } else {
                 TabView(selection: $selectedIntroduction) {
@@ -52,7 +61,6 @@ struct Controller: View {
                 .indexViewStyle(
                     .page(backgroundDisplayMode: .always)
                 )
-
             }
         }
     }

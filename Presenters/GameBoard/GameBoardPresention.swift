@@ -1,10 +1,11 @@
 import SwiftUI
 import SpriteKit
 
-struct GameBoardPresention: View {
+struct GameBoardPresention1: View {
     var scene: GameBoard
     @State var isPresented: Bool = true
     @State var isEndGame: Bool = false
+    @Binding var isSceneEnd: Bool
 
     var body: some View {
         GeometryReader { frame in
@@ -23,12 +24,13 @@ struct GameBoardPresention: View {
                 IntroBoardView(intro: TextEnum.introScene1.rawValue, instructions: TextEnum.instructionScene1.rawValue)
             }
             .sheet(isPresented: $isEndGame) {
-                EndBoardView()
+                EndBoardView(key: $isSceneEnd)
             }
             .onChange(of: scene.stateGame.finishedGame) { newValue in
-                isEndGame.toggle()
-            }
+                isEndGame.toggle()            }
         }
 
     }
 }
+
+
