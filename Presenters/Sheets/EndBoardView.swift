@@ -45,7 +45,7 @@ struct EndBoardView: View {
                             )
                     }
                 }
-
+                Spacer()
             }
             .frame(width: frame.size.width, height: frame.size.height, alignment: .center)
         }

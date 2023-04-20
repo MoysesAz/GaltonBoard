@@ -54,11 +54,11 @@ enum TextEnum: String {
     case introScene4 =
         "Consider an aleatory event, which is associated with a certain characteristic. Moreover, the environment in which a person lives, that is, the society in which they are inserted, can influence that person's starting point. And that person could be you, your family members or friends."
 
-
     case instructionScene4 =
         "Click na parte supdsvsdverior aos pregos para fazer as bolas cairem e fdgfgna parte de baixo resetar o jogo. Apos 20 clicks o mapa é encerrado"
 
     case endScene4 =
             "Observe que as bolinhas geraram uma forma galsiana. Representando porfgdffg exemplo a altura de pessoas na sociedade. Existem poucas pessoas baixinha e poucas pessoas altas. E uma quantifdfvfdvfddade enorme de pessoas com estatura media. Esse padrão se repente em milhares de assuntos."
-
+    case thanks =
+        "Thanks"
 }

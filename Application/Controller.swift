@@ -10,8 +10,8 @@ import SpriteKit
 
 
 struct Controller: View {
-    @State private var selectedIndex = 0 // Variável de estado para o índice selecionado
-    @State private var selectedIntroduction = 0 // Variável de estado para o índice selecionado
+    @State private var selectedIndex = 0
+    @State private var selectedIntroduction = 0 
     @State private var firstGame = false
 
 
@@ -37,6 +37,9 @@ struct Controller: View {
 
         else if (isSceneEnd1 && isSceneEnd2 && !isSceneEnd4) {
             Game4
+        }
+        else if (isSceneEnd1 && isSceneEnd2 && isSceneEnd4) {
+            QuestionsView(dialog: .thanks)
         }
 
     }

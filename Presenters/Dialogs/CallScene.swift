@@ -17,7 +17,7 @@ struct CallScene: View {
                 key.toggle()
             }){
 
-                Text("Start GaltonBoard")
+                Text("Play")
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
