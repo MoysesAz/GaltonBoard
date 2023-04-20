@@ -81,14 +81,18 @@ extension GameBoard {
         let dx = CGFloat.random(in: -0.1...0.1)
         self.physicsWorld.gravity = .init(dx: dx, dy: -9.8)
         
-        if countBalls > 100 {
+        if countBalls > 1250 && constantPosition != 4 {
+            stateGame.finishedGame.toggle()
+            removeAllChildren()
+            setup()
+            countBalls = 0
+        } else if countBalls > 2 && constantPosition == 4{
             stateGame.finishedGame.toggle()
             removeAllChildren()
             setup()
             countBalls = 0
         }
     }
-
     func setup() {
         addChildren([
             factory.createFactory(factory: .matrixFactory).createNode(),

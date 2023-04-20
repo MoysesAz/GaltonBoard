@@ -17,7 +17,6 @@ struct Controller: View {
 
     @State private var isSceneEnd1 = false
     @State private var isSceneEnd2 = false
-    @State private var isSceneEnd3 = false
     @State private var isSceneEnd4 = false
 
 
@@ -25,23 +24,18 @@ struct Controller: View {
     @State private var moment = 0
     @ObservedObject private var stateGame1 = StateGame()
     @ObservedObject private var stateGame2 = StateGame()
-    @ObservedObject private var stateGame3 = StateGame()
     @ObservedObject private var stateGame4 = StateGame()
 
 
     var body: some View {
-        if !isSceneEnd1 && !isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4 {
+        if !isSceneEnd1 && !isSceneEnd2 && !isSceneEnd4 {
             Game1
         }
-        else if (isSceneEnd1 && !isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4) {
+        else if (isSceneEnd1 && !isSceneEnd2 && !isSceneEnd4) {
             Game2
         }
 
-        else if (isSceneEnd1 && isSceneEnd2 && !isSceneEnd3 && !isSceneEnd4) {
-            Game3
-        }
-
-        else if (isSceneEnd1 && isSceneEnd2 && isSceneEnd3 && !isSceneEnd4) {
+        else if (isSceneEnd1 && isSceneEnd2 && !isSceneEnd4) {
             Game4
         }
 
@@ -78,21 +72,13 @@ struct Controller: View {
 
     var Game2: some View {
         GeometryReader { frame in
-            GameBoardPresention1(
+            GameBoardPresention2(
                 scene: GameBoard(factory: .init(size: frame.size), constantPosition: -1, stateGame: stateGame2), isSceneEnd: $isSceneEnd2)
         }
     }
-
-    var Game3: some View {
-        GeometryReader { frame in
-            GameBoardPresention1(
-                scene: GameBoard(factory: .init(size: frame.size), constantPosition: 1, stateGame: stateGame3), isSceneEnd: $isSceneEnd3)
-        }
-    }
-
     var Game4: some View {
         GeometryReader { frame in
-            GameBoardPresention1(
+            GameBoardPresention4(
                 scene: GameBoard(factory: .init(size: frame.size), constantPosition: 4, stateGame: stateGame4), isSceneEnd: $isSceneEnd4)
         }
     }
