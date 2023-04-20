@@ -67,7 +67,6 @@ class GameBoard: SKScene {
             default:
                 print("Valor invalido")
             }
-
             addChild(
                 node
             )
@@ -87,7 +86,7 @@ extension GameBoard {
             setup()
             countBalls = 0
 
-        } else if countBalls > 2 && constantPosition == 4{
+        } else if countBalls > 1 && constantPosition == 4{
             stateGame.finishedGame.toggle()
             removeAllChildren()
             setup()
